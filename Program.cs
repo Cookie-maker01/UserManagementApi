@@ -66,7 +66,12 @@ app.MapPost("/api/register", async (RegisterRequest request, AppDbContext db) =>
     db.Users.Add(user);
     await db.SaveChangesAsync();
 
-    return Results.Ok(new { user.Id, user.Username, user.Email });
+    var response = new UserResponse(
+        user.Id,
+        user.Username,
+        user.Email
+    );
+    return Results.Ok(response);
 });
 
 //Login
@@ -91,19 +96,31 @@ app.MapPost("/api/Login", async (LoginRequest login, AppDbContext db) =>
     var token = tokenHandler.CreateToken(tokenDescriptor);
     var jwt = tokenHandler.WriteToken(token);
 
-    return Results.Ok(new { Token = jwt });
+   return Results.Ok(new
+   {
+       Token = jwt,
+       User = new UserResponse(user.Id, user.Username, user.Email)
+   });
 });
 
 // Get users profile (need JWT validation)
 app.MapGet("/api/users", async (AppDbContext db) =>
-    await db.Users.ToListAsync()
-).RequireAuthorization();
+{
+    var users = await db.Users
+        .Select(u => new UserResponse(u.Id, u.Username, u.Email))
+        .ToListAsync();
+    return Results.Ok(users);
+}).RequireAuthorization();
 
 // Get a user profile 
 app.MapGet("/api/users/{id}", async (int id, AppDbContext db) =>
 {
     var user = await db.Users.FindAsync(id);
-    return user != null ? Results.Ok(user) : Results.NotFound();
+    if(user ==null)
+        return Results.NotFound();
+
+    var response = new UserResponse(user.Id, user.Username, user.Email);
+    return Results.Ok(response);
 }).RequireAuthorization();
 
 // Update user profile
