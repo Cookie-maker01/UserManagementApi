@@ -51,13 +51,18 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // Register
-app.MapPost("/api/register", async (User user, AppDbContext db) =>
+app.MapPost("/api/register", async (RegisterRequest request, AppDbContext db) =>
 {
-    if (await db.Users.AnyAsync(u => u.Email == user.Email))
+    if (await db.Users.AnyAsync(u => u.Email == request.Email))
          return Results.BadRequest("Email already exists");
+
+    var user = new User
+    {
+        Username = request.Username,
+        Email = request.Email,
+        PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password)
+    };
          
-    // password hashing
-    user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
     db.Users.Add(user);
     await db.SaveChangesAsync();
 
