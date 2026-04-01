@@ -56,7 +56,7 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[9.0.20, )"
+              "version": "[10.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",

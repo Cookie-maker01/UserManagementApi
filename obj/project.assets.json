@@ -3233,7 +3233,7 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "BCrypt.Net-Next >= 4.0.2",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.20",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.5",
       "Microsoft.EntityFrameworkCore.Sqlite >= 10.0.5",
@@ -3296,7 +3296,7 @@
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
-            "version": "[9.0.20, )"
+            "version": "[10.0.0, )"
           },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
@@ -3753,17 +3753,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "UserManagementApi depends on Microsoft.AspNetCore.Authentication.JwtBearer (>= 9.0.20) but Microsoft.AspNetCore.Authentication.JwtBearer 9.0.20 was not found. Microsoft.AspNetCore.Authentication.JwtBearer 10.0.0 was resolved instead.",
-      "libraryId": "Microsoft.AspNetCore.Authentication.JwtBearer",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  }
 }

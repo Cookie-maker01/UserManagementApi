@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fiEJEt5msOc=",
+  "dgSpecHash": "yMNkWWWZ4Lc=",
   "success": true,
   "projectFilePath": "D:\\new-project\\UserManagementApi\\UserManagementApi.csproj",
   "expectedPackageFiles": [
@@ -52,18 +52,5 @@
     "C:\\Users\\Weifang\\.nuget\\packages\\system.composition.typedparts\\9.0.0\\system.composition.typedparts.9.0.0.nupkg.sha512",
     "C:\\Users\\Weifang\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.1\\system.identitymodel.tokens.jwt.8.0.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "message": "UserManagementApi depends on Microsoft.AspNetCore.Authentication.JwtBearer (>= 9.0.20) but Microsoft.AspNetCore.Authentication.JwtBearer 9.0.20 was not found. Microsoft.AspNetCore.Authentication.JwtBearer 10.0.0 was resolved instead.",
-      "projectPath": "D:\\new-project\\UserManagementApi\\UserManagementApi.csproj",
-      "warningLevel": 1,
-      "filePath": "D:\\new-project\\UserManagementApi\\UserManagementApi.csproj",
-      "libraryId": "Microsoft.AspNetCore.Authentication.JwtBearer",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }
