@@ -19,8 +19,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // deploy JWT
-var jwtkey = builder.Configuration["JwtKey"]?? "ThisIsASecretKeyForDemo";
-var keyBytes = Encoding.ASCII.GetBytes(jwtkey);
+var jwtkey = builder.Configuration["JwtKey"]?? "ThisIsA32CharSecretKeyForDemo123!";
+var keyBytes = Encoding.UTF8.GetBytes(jwtkey);
 
 builder.Services.AddAuthentication(options =>
 {
